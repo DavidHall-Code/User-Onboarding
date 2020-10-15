@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+
 import * as yup from 'yup'
 import axios from 'axios'
 import './App.css'
@@ -79,7 +80,7 @@ const Form = (props) => {
         yup
         .reach(formSchema, event.target.name)
         .validate(event.target.value)
-        .then(valid => {
+        .then(() => {
             setError({
                 ...error,
                 [event.target.name]: ""
@@ -111,7 +112,7 @@ const Form = (props) => {
     console.log(error)
 
     return(
-        <div className= 'paralax'>
+        <div className= 'parallax'>
         <div className= 'whole-container'>
         <form className= 'team-form' onSubmit = {handleSubmit}>
             <div className= 'inputs-container'>
@@ -179,12 +180,13 @@ const Form = (props) => {
             <pre>{JSON.stringify (user, null, 2)}</pre>
         </div>
     </div>
-    </div>
-    )
-    }
 
-
-
+</div>
+    )}
+    
+    
+    // ("Password must be at least four charaters!")
+    //.required("A Password is required!"), */}
 
 
 
