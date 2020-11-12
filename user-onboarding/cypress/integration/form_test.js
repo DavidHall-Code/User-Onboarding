@@ -11,7 +11,7 @@ describe('User Form', () => {
         cy.visit('http://localhost:3000')
     })
 
-    it('can submit new users (happy)', ()=> {
+    it('I can submit new users (happy)', ()=> {
         cy.get('input[name="name"]')
             .type(username)
             .should('have.value', username)
@@ -29,9 +29,24 @@ describe('User Form', () => {
 
         cy.get('button').click()
 
+    })
+
+    it('Displays Validation Errors', () => {
+        cy.get('input[name="name"]')
+            .type(username)
+            .clear()
+    })
 
 
-})
+    it('works!', () => {
+        expect(5).to.eq(5)
+        expect(6).to.eq(6)
+    })
 
+
+    it('Image loaded correctly', () => {
+        cy.get('.parallax')
+            .should('be.visible')
+    })
 
 })
